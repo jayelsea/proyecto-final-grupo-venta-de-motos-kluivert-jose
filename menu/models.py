@@ -36,10 +36,10 @@ class Producto(models.Model):
 
 class Compra(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    productos = models.ManyToManyField(Producto)
     fecha = models.DateField()
-    detalle = models.TextField(blank=True) 
-    total = models.DecimalField(max_digits=10,decimal_places=2,default=0.00) # Campo para el total
-    
+    detalle = models.TextField(blank=True)
+    total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  # Campo para el total
+
     def __str__(self):
         return f"Compra {self.id} - {self.cliente.nombre}"

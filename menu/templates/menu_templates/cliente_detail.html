@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Detalle del Cliente</h1>
-<p>ID: {{ cliente.id }}</p>
-<p>Nombre: {{ cliente.nombre }}</p>
-<p>Email: {{ cliente.email }}</p>
-<p>Teléfono: {{ cliente.telefono }}</p>
-<a href="{% url 'cliente_update' cliente.id %}" class="btn btn-primary">Editar</a>
-<form action="{% url 'cliente_delete' cliente.id %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-</form>
-<a href="{% url 'cliente_list' %}" class="btn btn-secondary">Volver a la lista</a>
+<div class="container my-5">
+    <div class="card shadow-sm border-light">
+        <div class="card-header">
+            Detalle del Cliente
+        </div>
+        <div class="card-body">
+            <p>ID: {{ cliente.id }}</p>
+            <p>Nombre: {{ cliente.nombre }}</p>
+            <p>Email: {{ cliente.email }}</p>
+            <p>Teléfono: {{ cliente.telefono }}</p>
+            <a href="{% url 'cliente_update' cliente.id %}" class="btn btn-primary">Editar</a>
+            <form action="{% url 'cliente_delete' cliente.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+            <a href="{% url 'cliente_list' %}" class="btn btn-secondary">Volver a la lista</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

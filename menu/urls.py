@@ -3,6 +3,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
+
+    path('login/', views.CustomLoginView.as_view(), name='login'),
+    
+
     path('compras/', views.compra_list, name='compra_list'),  # Lista de compras
     path('compras/new/', views.compra_create, name='compra_create'),  # Agregar compra
     # path('compras/<int:pk>/edit/', views.compra_update, name='compra_edit'),  # Editar compra

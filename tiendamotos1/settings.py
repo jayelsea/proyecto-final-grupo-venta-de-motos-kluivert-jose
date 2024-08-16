@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_COOKIE_SECURE = False
 
 # Application definition
 
@@ -121,6 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+LOGIN_URL = "login/"
+
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
@@ -130,3 +133,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# configuraciones de autentificaciones 
+LOGIN_REDIRECT_URL = 'compras_create'
+LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = 'compras/'
