@@ -6,12 +6,12 @@
     <div class="card shadow-sm border-light">
         <div class="card-body">
             <div class="my-3">
-                <a href="{% url 'producto_create' %}" class="btn btn-info btn-sm" class="btn btn-danger mb-3" ><i class="fas fa-trash-alt">Agregar inventario</i> </a>
-                <a href="{% url 'cliente_list' %}" class="btn btn-info btn-sm" class="btn btn-danger mb-3" ><i class="fas fa-trash-alt"> Clientes</i></a>
-                <a href="{% url 'compra_list' %}" class="btn btn-info btn-sm" class="btn btn-danger mb-3"><i class="fas fa-trash-alt"> Compras</i></a>
+                <a href="{% url 'producto_create' %}"  class="btn btn-danger mb-3" ><i class="bi bi-plus">Agregar inventario</i> </a>
+                <a href="{% url 'cliente_list' %}"  class="btn btn-danger mb-3" ><i class="bi bi-search">Clientes</i></a>
+                <a href="{% url 'compra_list' %}" class="btn btn-danger mb-3"><i class="bi bi-search"> Compras</i></a>
             </div>
             <table class="table table-hover table-danger table-bordered text-center">
-                <thead class="table-success">
+                <thead class="table-success">   
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>

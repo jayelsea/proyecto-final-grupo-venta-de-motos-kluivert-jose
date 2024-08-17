@@ -1,14 +1,8 @@
 
-
 # Register your models here.
 from django.contrib import admin
+from .models import Moto
 
-
-
-class MotoAdmin(admin.ModelAdmin):
-    # Puedes personalizar la vista del modelo aquí si es necesario
-    list_display = ('marca', 'modelo', 'año', 'precio')
-    search_fields = ('marca', 'modelo')
 
 
 class ClienteAdmin(admin.ModelAdmin):

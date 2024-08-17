@@ -1,12 +1,15 @@
 # menu/urls.py
 from django.urls import path
+from .views import inicio_view
 from . import views
 
 urlpatterns = [
 
-
-    path('login/', views.CustomLoginView.as_view(), name='login'),
+    path('', inicio_view, name='inicio'),
     
+    path('login/', views.CustomLoginView.as_view(), name='login'),
+        
+    path('compras/<int:id>/', views.compra_detail, name='compra_detail'),
 
     path('compras/', views.compra_list, name='compra_list'),  # Lista de compras
     path('compras/new/', views.compra_create, name='compra_create'),  # Agregar compra
@@ -30,6 +33,5 @@ urlpatterns = [
     path('productos/<int:pk>/edit/', views.producto_update, name='producto_update'),  # Editar producto
     path('productos/<int:pk>/delete/', views.producto_delete, name='producto_delete'),  # Eliminar producto
 ]
-
 
 

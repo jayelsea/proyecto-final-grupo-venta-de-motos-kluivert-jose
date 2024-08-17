@@ -23,5 +23,6 @@ class CompraForm(forms.ModelForm):
         model = Compra
         fields = ['cliente', 'productos', 'fecha','detalle']
         widgets = {
+            'productos': forms.CheckboxSelectMultiple(),
             'fecha': forms.DateInput(attrs={'type': 'date'})  # Para usar el selector de fecha HTML5
         }

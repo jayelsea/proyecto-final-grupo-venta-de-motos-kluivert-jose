@@ -10,11 +10,7 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                {% if form.instance.total %}
-                <p>Total: {{ form.instance.total }}</p>
-                {% else %}
-                <p>Total: 0.00</p>
-                {% endif %}
+                <p>Total: {{ form.instance.total|default:"0.00" }}</p>
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <a href="{% url 'compra_list' %}" class="btn btn-secondary">Cancelar</a>
             </form>

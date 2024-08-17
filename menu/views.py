@@ -2,11 +2,16 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cliente, Producto, Compra
+from django.views.generic.edit import CreateView, UpdateView
 from .forms import ClienteForm, ProductoForm, CompraForm
 from django.contrib.auth.views import LoginView
+from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
+#Página de inicio
+def inicio_view(request):
+    return render(request, 'inicio.html')
 
 # Vistas para Cliente
 def cliente_list(request):
@@ -104,8 +109,8 @@ def compra_list(request): #vista de lista de compras
     return render(request, 'menu_templates/compra_list.html', {'compras': compras})
 
 @login_required
-def compra_detail(request, pk):  #detalles de las compras 
-    compra = get_object_or_404(Compra, pk=pk)
+def compra_detail(request, id):  #detalles de las compras 
+    compra = get_object_or_404(Compra, id=id)
     return render(request, 'menu_templates/compra_detail.html', {'compra': compra})
 
 @login_required
@@ -118,30 +123,50 @@ def compra_create(request):
             total = sum(producto.precio for producto in productos)
             compra.total = total
             compra.save()
+            form.save_m2m() 
             compra.productos.set(productos)  # Guarda los productos relacionados
             return redirect('compra_list')
     else:
         form = CompraForm()
     return render(request, 'menu_templates/compra_form.html', {'form': form})
 
+def compra_form_view(request, pk=None):
+    if pk:
+        compra = Compra.objects.get(pk=pk)
+    else:
+        compra = Compra()
 
-#def compra_update(request, pk):   #edit de compras 
-    # compra = get_object_or_404(Compra, pk=pk)
-    # if request.method == 'POST':
-    #     form = CompraForm(request.POST, instance=compra)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('compra_list')
-    # else:
-    #     form = CompraForm(instance=compra)
-    # return render(request, 'menu_templates/compra_form.html', {'form': form})
+    if request.method == 'POST':
+        form = CompraForm(request.POST, instance=compra)
+        if form.is_valid():
+            form.save()
+            return redirect('compra_list')
+    else:
+        form = CompraForm(instance=compra)
 
-#def compra_delete(request, pk):
-    # compra = get_object_or_404(Compra, pk=pk)
-    # if request.method == 'POST':
-    #     compra.delete()
-    #     return redirect('compra_list')
-    # return render(request, 'menu_templates/compra_confirm_delete.html', {'compra': compra})
+    return render(request, 'menu_templates/compra_form.html', {'form': form})
 
-# views.py
+#Para ver el total actualizado
+class CompraCreateView(CreateView):
+    model = Compra
+    form_class = CompraForm
+    template_name = 'menu_templates/compra_form.html'
+    
+    def form_valid(self, form):
+        # Calcula el total antes de guardar
+        response = super().form_valid(form)
+        self.object.total = form.cleaned_data['productos'].aggregate(Sum('precio'))['precio__sum'] or 0.00
+        self.object.save()
+        return response
 
+class CompraUpdateView(UpdateView):
+    model = Compra
+    form_class = CompraForm
+    template_name = 'menu_templates/compra_form.html'
+    
+    def form_valid(self, form):
+        # Calcula el total antes de guardar
+        response = super().form_valid(form)
+        self.object.total = form.cleaned_data['productos'].aggregate(Sum('precio'))['precio__sum'] or 0.00
+        self.object.save()
+        return response

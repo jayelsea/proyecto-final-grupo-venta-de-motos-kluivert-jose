@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - MotoSales</title>
+    <link rel="stylesheet" href="{% static 'styleinicio.css' %}"> 
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <ul>
+                <li><a class="nav-link" href="{% url 'cliente_list' %}">Clientes</a></li>
+                <li><a class="nav-link" href="{% url 'compra_list' %}">Compras</a></li>
+                <li><a class="nav-link" href="{% url 'producto_list' %}">Motos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenido a MotocycleClub</h1>
+                <p>Descubre las mejores motos del mercado.</p>
+                <a href="{% url 'producto_list' %}" class="btn">Explorar Motos</a>
+            </div>
+            <img src="{% static 'logomotos.jpg' %}" alt="Moto destacada" class="hero-image">
+        </section>
+
+        <!-- Sección de modelos destacados -->
+        <section class="featured-bikes">
+            <h2>Motos Destacadas</h2>
+            <div class="bike-grid">
+                <article class="bike-item">
+                    <img src="{% static 'images/Honda-CBR-PNG.png' %}" alt="Moto 1">
+                    <h3>Modelo A</h3>
+                    <p>Una moto deportiva con gran rendimiento.</p>
+                </article>
+                <article class="bike-item">
+                    <img src="{% static 'images/Honda-Bike.png' %}" alt="Moto 2">
+                    <h3>Modelo B</h3>
+                    <p>Confort y estilo en cada viaje.</p>
+                </article>
+                <article class="bike-item">
+                    <img src="{% static 'images/Motorcycle.png' %}" alt="Moto 3">
+                    <h3>Modelo C</h3>
+                    <p>La elección perfecta para aventureros.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 MotoSales. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

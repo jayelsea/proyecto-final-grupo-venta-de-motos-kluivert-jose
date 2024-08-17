@@ -1,0 +1,108 @@
+/* styles.css */
+
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e0; /* Color del texto claro */
+  }
+  
+  header {
+    background-color: #1f1f1f; /* Fondo oscuro del encabezado */
+    color: #e0e0e0; /* Color del texto en el encabezado */
+    padding: 20px;
+    position: static; /* El encabezado sigue el flujo normal del documento */
+    width: 100%;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Alinear los enlaces al centro */
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+    margin-top: 70px; /* Ajusta esto si necesitas un espacio arriba para el header */
+  }
+  
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #333; /* Fondo oscuro para la sección de bienvenida */
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    color: #e0e0e0;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .featured-bikes {
+    padding: 20px;
+    background-color: #1f1f1f; /* Fondo oscuro para la sección de motos destacadas */
+    border-radius: 10px;
+  }
+  
+  .featured-bikes h2 {
+    text-align: center;
+    color: #e0e0e0;
+  }
+  
+  .bike-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinear las motos al centro */
+  }
+  
+  .bike-item {
+    background-color: #333;
+    color: #e0e0e0;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 250px; /* Tamaño fijo para las motos */
+  }
+  
+  .bike-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  footer {
+    background-color: #1f1f1f; /* Fondo oscuro del pie de página */
+    color: #e0e0e0; /* Color del texto en el pie de página */
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Mantener el pie de página al final del documento */
+    bottom: 0;
+    width: 100%;
+  }
+  

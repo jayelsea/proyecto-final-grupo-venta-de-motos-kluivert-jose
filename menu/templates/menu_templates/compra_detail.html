@@ -8,11 +8,15 @@
         </div>
         <div class="card-body">
             <p><strong>Cliente:</strong> {{ compra.cliente.nombre }}</p>
-            <p><strong>Producto:</strong> {{ compra.producto.nombre }}</p>
+            <p><strong>Productos:</strong>
+                {% for producto in compra.productos.all %}
+                    {{ producto.nombre }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            
             <p><strong>Fecha:</strong> {{ compra.fecha }}</p>
             <p><strong>Detalles:</strong> {{ compra.detalle }}</p>
             <a href="{% url 'compra_list' %}" class="btn btn-secondary">Volver a la lista</a>
-            <a href="{% url 'compra_view' compra.id %}" class="btn btn-info">Ver Detalles</a>
         </div>
     </div>
 </div>

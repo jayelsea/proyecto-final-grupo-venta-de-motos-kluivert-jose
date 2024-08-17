@@ -1,0 +1,152 @@
+/* Estilos básicos del body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #e0e0e0;
+  background-color: #000; /* Fondo negro para todo el sitio */
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #222;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 1000;
+  left: 0;
+  z-index: 1000; /* Asegura que el encabezado esté sobre otros elementos */
+  height: 100px; /* Altura fija para el encabezado */
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Estilos del contenido principal */
+main {
+  padding: 90px 20px 20px; /* Padding-top aumentado para evitar que el contenido se superponga con el encabezado */
+}
+
+/* Sección de bienvenida */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  padding: 10px 20px;
+  background-color: #ff5733;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.hero .hero-image {
+  max-width: 45%;
+  height: auto;
+}
+
+/* Estilos de la sección de motos destacadas */
+.featured-bikes {
+  padding: 40px 20px;
+  background: #222;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px; /* Limita el ancho para mantener el contenido centrado */
+}
+
+.featured-bikes h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e0e0e0; /* Asegura que el texto sea visible */
+}
+
+.bike-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre elementos */
+}
+
+.bike-item {
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(33.333% - 20px); /* Tres columnas con espacio entre ellas */
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.bike-item:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.bike-item img {
+  width: 100%;
+  height: auto;
+}
+
+.bike-item h3 {
+  margin: 10px 0;
+  color: #e0e0e0; /* Asegura que el texto sea visible */
+}
+
+.bike-item p {
+  padding: 0 10px 10px;
+  color: #b0b0b0; /* Color de texto más claro para el párrafo */
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+  color: #e0e0e0;
+  margin-top: 20px;
+}
